@@ -18,7 +18,7 @@ public class MethodExample {
     }
     
     String name;
-    int age;
+    static int age;
     
     void printName(){
         
