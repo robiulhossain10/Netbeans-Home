@@ -8,7 +8,7 @@ package com.methods.methodexample.BankLoan;
  *
  * @author ROBIUL
  */
-public class Bank {
+public class Bank{
     private static double totalFund = 500000;
     
     public static void getTotalFund(){
@@ -17,7 +17,7 @@ public class Bank {
     
     
     void received(double amount){
-        totalFund += amount;
+        totalFund -= amount;
     }
     
     void loanGiven(double amount){
