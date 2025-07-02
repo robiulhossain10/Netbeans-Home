@@ -49,6 +49,6 @@ public class WhileLoop {
              }
          }
          }
-         System.out.println("Arrays2while: " + Arrays.deepToString(array2));
+         System.out.println("Arrays2while: " + Arrays.deepToString(array2)); 
      }
 }
