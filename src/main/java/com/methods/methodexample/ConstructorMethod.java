@@ -7,7 +7,7 @@ package com.methods.methodexample;
 /**
  *
  * @author ROBIUL
- */
+ */   
 public class ConstructorMethod {
     public static void main(String[] args) {
         ConstructorMethod std1 = new ConstructorMethod(" Robiul" ,26);
