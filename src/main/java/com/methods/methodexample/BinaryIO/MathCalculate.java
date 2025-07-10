@@ -11,15 +11,13 @@ import java.util.Scanner;
  * @author ROBIUL
  */
 public class MathCalculate {
-     int a = 1;
-     int b = 1;
     
      private int num;
      private int gun;
      private int biyog;
      private int vag;
 
-    public MathCalculate() {
+    public MathCalculate(int a,int b) {
         this.num = a+b;
         this.biyog = a-b;
         this.vag = a/b;

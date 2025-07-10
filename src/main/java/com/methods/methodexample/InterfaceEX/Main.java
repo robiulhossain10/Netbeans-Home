@@ -2,21 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.methods.methodexample.BankLoan;
+package com.methods.methodexample.InterfaceEX;
 
 /**
  *
  * @author ROBIUL
  */
-public class Authority {
+public class Main {
     public static void main(String[] args) {
-        LoanHolder p1 = new LoanHolder(10000, 3254,2555, "Robiul Hossain");
+        SmartHandle s = new SmartHandle();
         
         
-         Bank.getTotalFund();
-        
-//         p1.interestAmount();
-//         p1.payableAmmount();
-          p1.pay(7000);
+        s.fly();
+        s.read();
+        s.sleep();
+        s.course();
+        s.eat();
     }
 }

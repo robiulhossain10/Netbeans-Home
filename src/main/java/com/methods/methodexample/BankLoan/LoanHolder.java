@@ -8,7 +8,8 @@ package com.methods.methodexample.BankLoan;
  *
  * @author ROBIUL
  */
-public class LoanHolder extends Bank{
+public class LoanHolder extends Bank {
+
     double loanAmount, totalDebt;
     int loanID;
     String name;
@@ -23,12 +24,12 @@ public class LoanHolder extends Bank{
         payableAmmount();
         interestAmount();
     }
-    
-    double interestAmount(){
-        System.out.println("Interest Total Amount : "+loanAmount * interestRate);
-        return loanAmount * interestRate ;
+
+    double interestAmount() {
+        System.out.println("Interest Total Amount : " + loanAmount * interestRate);
+        return loanAmount * interestRate;
     }
-    
+
 //    void pay(double amount){
 //        totalDebt -=amount;
 //        System.out.println(amount+" TK Paid");
@@ -36,12 +37,10 @@ public class LoanHolder extends Bank{
 //        received(amount);
 //        
 //    }
-    
-        void payableAmmount(){
-    
-        
-        System.out.println("Total Payable Amount is "+ totalDebt);
-    
+    void payableAmmount() {
+
+        System.out.println("Total Payable Amount is " + totalDebt);
+
     }
-    
+
 }
