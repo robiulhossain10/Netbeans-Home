@@ -1,21 +1,14 @@
 package com.methods.methodexample.advancebanking;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class BankingApp {
-
-    private static final String url = "jdbc:mysql://mysql-av-robiulhossain0110-9408.j.aivencloud.com:24544/banking_system?sslMode=REQUIRED";
-    private static final String username = "avnadmin";
-    private static final String password = "AVNS_sofXB2D2Fw3rdy766LM";
-
     public static void main(String[] args) {
         try {
-            // ✅ Load JDBC Driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // ✅ Establish Connection
-            Connection connection = DriverManager.getConnection(url, username, password);
+            // ✅ Establish connection from DBConnection
+            Connection connection = DBConnection.getConnection();
             Scanner scanner = new Scanner(System.in);
 
             // ✅ Instantiate classes
@@ -69,24 +62,18 @@ public class BankingApp {
                                 choice2 = scanner.nextInt();
 
                                 switch (choice2) {
-                                    case 1 ->
-                                        accountManager.debit_money(account_number);
-                                    case 2 ->
-                                        accountManager.credit_money(account_number);
-                                    case 3 ->
-                                        accountManager.transfer_money(account_number);
-                                    case 4 ->
-                                        accountManager.getBalance(account_number);
-                                    case 5 ->
-                                        System.out.println("🔓 Logged Out.");
-                                    default ->
-                                        System.out.println("❌ Invalid Choice!");
+                                    case 1 -> accountManager.debit_money(account_number);
+                                    case 2 -> accountManager.credit_money(account_number);
+                                    case 3 -> accountManager.transfer_money(account_number);
+                                    case 4 -> accountManager.getBalance(account_number);
+                                    case 5 -> System.out.println("🔓 Logged Out.");
+                                    default -> System.out.println("❌ Invalid Choice!");
                                 }
                             }
                         } else {
                             System.out.println("❌ Incorrect Email or Password!");
                         }
-                        break; // ✅ IMPORTANT!
+                        break;
 
                     case 3:
                         System.out.println("👋 THANK YOU FOR USING BANKING SYSTEM!!!");
@@ -97,8 +84,6 @@ public class BankingApp {
                 }
             }
 
-        } catch (ClassNotFoundException e) {
-            System.out.println("❌ JDBC Driver not found: " + e.getMessage());
         } catch (SQLException e) {
             System.out.println("❌ Database Error: " + e.getMessage());
             e.printStackTrace();
