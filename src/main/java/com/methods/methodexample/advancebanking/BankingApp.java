@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class BankingApp {
 
-    private static final String url = "jdbc:mysql://mysql-av-robiulhossain0110-9408.j.aivencloud.com:24544/banking_system?sslMode=REQUIRED";
-    private static final String username = "avnadmin";
-    private static final String password = "AVNS_sofXB2D2Fw3rdy766LM";
+//    private static final String url = "jdbc:mysql://mysql-av-robiulhossain0110-9408.j.aivencloud.com:24544/banking_system?sslMode=REQUIRED";
+//    private static final String username = "avnadmin";
+//    private static final String password = "AVNS_sofXB2D2Fw3rdy766LM";
 
     public static void main(String[] args) {
         try {
