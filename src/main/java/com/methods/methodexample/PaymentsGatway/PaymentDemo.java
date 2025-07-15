@@ -8,46 +8,57 @@ public class PaymentDemo {
         Scanner sc = new Scanner(System.in);
         int input;
 
-        do {
-            System.out.println("\nWelcome To MyPay");
-            System.out.println("1. Credit Card");
-            System.out.println("2. Debit Card");
-            System.out.println("3. UPI");
-            System.out.println("4. LogOut");
-            System.out.print("Select Payment Method: ");
-            input = sc.nextInt();
+        System.out.print("Enter your User ID: ");
+        String userId = sc.nextLine();
 
-            if (input == 4) {
-                System.out.println("Thank you for using MyPay!");
-                break;
+        try {
+            // 1st-time user → set PIN
+            if (PinDB.getHashedPin(userId) == null) {
+                System.out.print("No PIN found. Set new 4-digit PIN: ");
+                String newPin = sc.nextLine();
+                PinDB.saveHashedPin(userId, newPin);
+                System.out.println("✅ PIN set successfully!\n");
+                
             }
 
-            System.out.print("Enter Amount: ");
-            double amount = sc.nextDouble();
+            do {
+                System.out.println("\nWelcome To MyPay");
+                System.out.println("1. Credit Card");
+                System.out.println("2. Debit Card");
+                System.out.println("3. UPI");
+                System.out.println("4. Log Out");
+                System.out.print("Select Payment Method: ");
+                input = sc.nextInt();
+                sc.nextLine(); // consume newline
 
-            PaymentMethod payment;
-
-            switch (input) {
-                case 1 ->
-                    payment = new CreditCardPayments(amount, "1234");
-                case 2 ->
-                    payment = new DebitCardPayments(amount, "4321");
-                case 3 ->
-                    payment = new UPIPayments(amount, "0000");
-                default -> {
-                    System.out.println("Invalid Payment Method");
-                    continue;
+                if (input == 4) {
+                    System.out.println("Thank you for using MyPay!");
+                    break;
                 }
-            }
 
-            try {
-                payment.authenticateUser(); 
-                payment.completeTransaction(amount);
-            } catch (RuntimeException e) {
-                System.out.println("Authentication Failed. Payment Canceled.\n");
-            }
+                System.out.print("Enter Payment Amount: ");
+                double amount = sc.nextDouble();
+                sc.nextLine(); // consume newline
 
-        } while (true);
+                PaymentMethod payment;
+
+                switch (input) {
+                    case 1 -> payment = new CreditCardPayments(amount, userId);
+//                    case 2 -> payment = new DebitCardPayments(amount, userId);
+//                    case 3 -> payment = new UPIPayments(amount, userId);
+                    default -> {
+                        System.out.println("❌ Invalid Payment Method");
+                        continue;
+                    }
+                }
+
+                payment.processingPayment();
+
+            } while (true);
+
+        } catch (RuntimeException e) {
+            System.out.println("❌ " + e.getMessage());
+        }
 
         sc.close();
     }

@@ -4,11 +4,15 @@ import java.util.Scanner;
 
 public class CreditCardPayments extends Payment implements PaymentMethod {
 
-    private final String hashedPin;
+    private final String storedHashedPin;
 
-    public CreditCardPayments(double amount, String pin) {
+    public CreditCardPayments(double amount, String userId) {
         super(amount);
-        this.hashedPin = HashUtil.sha256(pin); 
+        this.storedHashedPin = PinDB.getHashedPin(userId);
+
+        if (this.storedHashedPin == null) {
+            throw new RuntimeException("User not found or PIN not set.");
+        }
     }
 
     @Override
@@ -21,24 +25,24 @@ public class CreditCardPayments extends Payment implements PaymentMethod {
     @Override
     public void authenticateUser() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter your 4-digit PIN: ");
+        System.out.print("Enter your PIN: ");
         String inputPin = sc.nextLine();
 
         if (!verifyPin(inputPin)) {
-            System.out.println("Authentication Failed. Transaction Cancelled.");
+            System.out.println("❌ Authentication Failed");
             throw new RuntimeException("Auth failed");
         }
-        System.out.println("Authentication Successful");
+
+        System.out.println("✅ Authentication Successful");
     }
 
     @Override
     public void completeTransaction(double amount) {
-        System.out.println("Charged Credit Card with amount: " + amount);
+        System.out.println("✅ Charged Credit Card with amount: " + amount);
     }
 
     @Override
     public boolean verifyPin(String inputPin) {
-        String hashedInput = HashUtil.sha256(inputPin);
-        return hashedPin.equals(hashedInput);
+        return storedHashedPin.equals(HashUtil.sha256(inputPin));
     }
 }

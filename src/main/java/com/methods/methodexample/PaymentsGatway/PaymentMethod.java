@@ -11,5 +11,6 @@ package com.methods.methodexample.PaymentsGatway;
 public interface PaymentMethod {
     void authenticateUser();
     void completeTransaction(double amount);
-     boolean verifyPin(String inputPin);
+    boolean verifyPin(String inputPin);
+    void processingPayment(); 
 }
