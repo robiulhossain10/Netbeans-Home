@@ -20,7 +20,7 @@ public abstract class Payment {
     }
     
     public String generateTransactionId(){
-        return "TRX" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
+        return "TRXID:" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
     }
     
     public abstract void processingPayment();
