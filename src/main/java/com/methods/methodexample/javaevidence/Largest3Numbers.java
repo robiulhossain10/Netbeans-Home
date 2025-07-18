@@ -4,6 +4,8 @@
  */
 package com.methods.methodexample.javaevidence;
 
+import java.util.Scanner;
+
 /**
  *
  * @author ROBIUL
@@ -11,10 +13,13 @@ package com.methods.methodexample.javaevidence;
 public class Largest3Numbers {
 
     public static void main(String[] args) {
-        int a = 20;
-        int b = 30;
-
-        int c = 10;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter 1st Value");
+        int a = sc.nextInt();
+        System.out.println("Enter Second Value");
+        int b = sc.nextInt();
+        System.out.println("Enter 3rd Value");
+        int c = sc.nextInt();
 
         int largest;
 
