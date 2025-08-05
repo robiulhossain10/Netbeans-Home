@@ -1,9 +1,11 @@
-package com.methods.methodexample.JDBC;
+package com.methods.methodexample.JDBCFinalObject;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-public class DBConnection {
+public class ConnctsDB {
 
     private static final Dotenv dotenv = Dotenv.load();
     private static final String DB_URL = dotenv.get("DB3_URL");
@@ -13,7 +15,7 @@ public class DBConnection {
     private static Connection connection;
 
     // Private constructor to prevent instantiation
-    private DBConnection() {
+    private ConnctsDB() {
     }
 
     public static Connection getConnection() throws SQLException {
