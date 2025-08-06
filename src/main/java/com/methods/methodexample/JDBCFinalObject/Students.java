@@ -101,8 +101,21 @@ public class Students {
 
     @Override
     public String toString() {
-        return "Students{" + "id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", email=" + email + ", gender=" + gender + ", dob=" + dob + ", create_at=" + create_at + ", is_deleted=" + is_deleted + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Students{");
+        sb.append("id=").append(id);
+        sb.append(", first_name=").append(first_name);
+        sb.append(", last_name=").append(last_name);
+        sb.append(", email=").append(email);
+        sb.append(", gender=").append(gender);
+        sb.append(", dob=").append(dob);
+        sb.append(", create_at=").append(create_at);
+        sb.append(", is_deleted=").append(is_deleted);
+        sb.append('}');
+        return sb.toString();
     }
+
+  
     
     
     

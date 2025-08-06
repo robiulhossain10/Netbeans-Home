@@ -1,0 +1,20 @@
+# ----------- COMMON SETTING -------------
+DB_TYPE=mysql
+# ----------- MySQL CONFIG ---------------
+MYSQL_HOST=mysql-av-robiulhossain0110-9408.j.aivencloud.com:24544/my_test?ssl-mode=REQUIRED
+MYSQL_PORT=24544
+MYSQL_DB=my_test
+MYSQL_USER=avnadmin
+MYSQL_PASS=AVNS_sofXB2D2Fw3rdy766LM
+
+# ----------- PostgreSQL CONFIG ----------
+POSTGRES_HOST=dpg-d231acvdiees7397elg0-a.singapore-postgres.render.com
+POSTGRES_PORT=5432
+POSTGRES_DB=testdb_20eh
+POSTGRES_USER=pguser
+POSTGRES_PASS=ozFiswONkKHpSr28vRMWEPHBYsaDt9NK
+
+# ----------- MongoDB CONFIG -------------
+MONGO_URI=mongodb+srv://Robiul:robiul321@datas.jr7krt1.mongodb.net/?retryWrites=true&w=majority&appName=Datas
+MONGO_DB=TestDB
+MONGO_COLLECTION=Students

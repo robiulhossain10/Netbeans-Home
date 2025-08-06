@@ -19,10 +19,10 @@ public class Main {
         Properties dbProps = DBConfig.load();
         UserRepository repo = new MySQLUserRepository(dbProps); // Should work
         UserService service = new UserService(repo);
-        service.registerUser("Kafi");
+//        service.registerUser("Kafi");
 
 
-//    service.updateUser(1, "Rakib");
+    service.updateUser(2, "Galib");
 
 //service.deleteUser(1);
         

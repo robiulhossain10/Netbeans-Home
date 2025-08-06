@@ -41,7 +41,7 @@ public class MySQLUserRepository implements UserRepository {
 
     @Override
     public void read() {
-        String sql = "SELECT * FROM dip";
+        String sql = "SELECT * FROM dip order by id asc";
 
         try (Connection conn = getConnection(); 
              PreparedStatement psmt = conn.prepareStatement(sql);
