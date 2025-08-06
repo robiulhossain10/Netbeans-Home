@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 public class MySQLConnection implements DatabaseConnection {
      private Connection conn;
+     private PreparedStatement psmt = null;
     @Override
     public void connect() {
                 try {
@@ -59,7 +60,7 @@ public class MySQLConnection implements DatabaseConnection {
             }
             
             String sql = "SELECT * FROM diptest order by id asc";
-            PreparedStatement psmt = conn.prepareStatement(sql);
+            psmt = conn.prepareStatement(sql);
             
             ResultSet rs = psmt.executeQuery();
             
@@ -68,9 +69,21 @@ public class MySQLConnection implements DatabaseConnection {
                 String name = rs.getString("name");
                 int age = rs.getInt("age");
                 
-                System.out.println(id+name+age);
+                System.out.println("ID     :" +id);
+                System.out.println("Name   :" +name);
+                System.out.println("Age    :" +age);
+                System.out.println("-------------------------------");
             }
         } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                conn.close();
+                psmt.close();
+                System.out.println("Close Connection!");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

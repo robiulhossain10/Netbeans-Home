@@ -29,7 +29,7 @@ public class Main {
         
         MySQLConnection ms = new MySQLConnection();
         ms.connect();
-        ms.insert("Robiul", 26);
+//        ms.insert("Labib", 26);
         ms.read();
         
 //        MongoDBConnection mongo = new MongoDBConnection();
